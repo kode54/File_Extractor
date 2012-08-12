@@ -208,7 +208,6 @@
     <None Include="..\..\unrar\readme.txt" />
     <None Include="..\..\unrar\technote.txt" />
     <None Include="..\..\unrar\whatsnew.txt" />
-    <None Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
