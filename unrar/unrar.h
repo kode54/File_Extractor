@@ -7,6 +7,8 @@
 #include <stddef.h>
 #include <limits.h>
 
+#include "../fex/blargg_common.h"
+
 #if !defined (UNRAR_NO_LONG_LONG) && defined (LLONG_MAX)
 	typedef long long unrar_long_long;
 #else
@@ -90,7 +92,7 @@ typedef struct unrar_info_t
 {
 	unrar_pos_t     size;       /**< Uncompressed size */
 	const char*     name;       /**< Name, in Unicode if is_unicode is true */
-	const wchar_t*  name_w;     /**< Name in Unicode, "" if unavailable */
+    const blargg_wchar_t*  name_w;     /**< Name in Unicode, "" if unavailable */
 	unrar_bool      is_unicode; /**< True if name is Unicode (UTF-8) */
 	unsigned int    dos_date;   /**< Date in DOS-style format, 0 if unavailable */
 	unsigned int    crc;        /**< Checksum; algorithm depends on archive */

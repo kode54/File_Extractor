@@ -235,9 +235,9 @@ BLARGG_EXPORT fex_err_t fex_open( fex_t** fe_out, const char path [] )
 
 //// Wide paths
 
-char* fex_wide_to_path( const wchar_t* wide )
+char* fex_wide_to_path( const blargg_wchar_t* wide )
 {
-	return blargg_to_utf8( wide );
+    return blargg_to_utf8( wide );
 }
 
 void fex_free_path( char* path )
@@ -305,14 +305,14 @@ BLARGG_EXPORT void        fex_close           ( fex_t* fe )                     
 BLARGG_EXPORT fex_type_t  fex_type            ( const fex_t* fe )                   { return fe->type(); }
 BLARGG_EXPORT int         fex_done            ( const fex_t* fe )                   { return fe->done(); }
 BLARGG_EXPORT const char* fex_name            ( const fex_t* fe )                   { return fe->name(); }
-BLARGG_EXPORT const wchar_t* fex_wname        ( const fex_t* fe )                   { return fe->wname(); }
-BLARGG_EXPORT __int64     fex_size            ( const fex_t* fe )                   { return fe->size(); }
+BLARGG_EXPORT const blargg_wchar_t* fex_wname        ( const fex_t* fe )                   { return fe->wname(); }
+BLARGG_EXPORT uint64_t    fex_size            ( const fex_t* fe )                   { return fe->size(); }
 BLARGG_EXPORT unsigned    fex_dos_date        ( const fex_t* fe )                   { return fe->dos_date(); }
 BLARGG_EXPORT unsigned    fex_crc32           ( const fex_t* fe )                   { return fe->crc32(); }
 BLARGG_EXPORT fex_err_t   fex_stat            ( fex_t* fe )                         { return fe->stat(); }
 BLARGG_EXPORT fex_err_t   fex_next            ( fex_t* fe )                         { return fe->next(); }
 BLARGG_EXPORT fex_err_t   fex_rewind          ( fex_t* fe )                         { return fe->rewind(); }
-BLARGG_EXPORT __int64     fex_tell            ( const fex_t* fe )                   { return fe->tell(); }
+BLARGG_EXPORT uint64_t    fex_tell            ( const fex_t* fe )                   { return fe->tell(); }
 BLARGG_EXPORT fex_pos_t   fex_tell_arc        ( const fex_t* fe )                   { return fe->tell_arc(); }
 BLARGG_EXPORT fex_err_t   fex_seek_arc        ( fex_t* fe, fex_pos_t pos )          { return fe->seek_arc( pos ); }
 BLARGG_EXPORT const char* fex_type_extension  ( fex_type_t t )                      { return t->extension; }

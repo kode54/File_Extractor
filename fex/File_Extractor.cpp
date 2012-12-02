@@ -152,7 +152,7 @@ void File_Extractor::clear_file()
 	clear_file_v();
 }
 
-void File_Extractor::set_name( const char new_name [], const wchar_t* new_wname )
+void File_Extractor::set_name( const char new_name [], const blargg_wchar_t* new_wname )
 {
 	name_  = new_name;
 	wname_ = new_wname;

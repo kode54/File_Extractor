@@ -259,7 +259,7 @@ private:
 };
 #endif
 
-char* blargg_to_utf8( const wchar_t* );
-wchar_t* blargg_to_wide( const char* );
+char* blargg_to_utf8( const blargg_wchar_t* );
+blargg_wchar_t* blargg_to_wide( const char* );
 
 #endif

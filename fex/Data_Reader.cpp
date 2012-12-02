@@ -6,10 +6,6 @@
 #include <stdio.h>
 #include <errno.h>
 
-#if BLARGG_UTF8_PATHS
-	#include <windows.h>
-#endif
-
 /* Copyright (C) 2005-2009 Shay Green. This module is free software; you
 can redistribute it and/or modify it under the terms of the GNU Lesser
 General Public License as published by the Free Software Foundation; either
@@ -349,21 +345,21 @@ size_t utf8_encode_char( unsigned wide, char * target )
 	return count;
 }
 
-size_t utf16_encode_char( unsigned cur_wchar, wchar_t * out )
+size_t utf16_encode_char( unsigned cur_wchar, blargg_wchar_t * out )
 {
 	if ( cur_wchar < 0x10000 )
 	{
-		if ( out ) *out = (wchar_t) cur_wchar; return 1;
+        if ( out ) *out = (blargg_wchar_t) cur_wchar; return 1;
 	}
 	else if ( cur_wchar < ( 1 << 20 ) )
 	{
 		unsigned c = cur_wchar - 0x10000;
 		//MSDN:
-		//The first (high) surrogate is a 16-bit code value in the range U+D800 to U+DBFF. The second (low) surrogate is a 16-bit code value in the range U+DC00 to U+DFFF. Using surrogates, Unicode can support over one million characters. For more details about surrogates, refer to The Unicode Standard, version 2.0.
+        //The first (high) surrogate is a 16-bit code value in the range U+D800 to U+DBFF. The second (low) surrogate is a 16-bit code value in the range U+DC00 to U+DFFF. Using surrogates, Unicode can support over one million characters. For more details about surrogates, refer to The Unicode Standard, version 2.0.
 		if ( out )
 		{
-			out[0] = ( wchar_t )( 0xD800 | ( 0x3FF & ( c >> 10 ) ) );
-			out[1] = ( wchar_t )( 0xDC00 | ( 0x3FF & c ) ) ;
+            out[0] = ( blargg_wchar_t )( 0xD800 | ( 0x3FF & ( c >> 10 ) ) );
+            out[1] = ( blargg_wchar_t )( 0xDC00 | ( 0x3FF & c ) ) ;
 		}
 		return 2;
 	}
@@ -373,7 +369,7 @@ size_t utf16_encode_char( unsigned cur_wchar, wchar_t * out )
 	}
 }
 
-size_t utf16_decode_char( const wchar_t * p_source, unsigned * p_out, size_t p_source_length )
+size_t utf16_decode_char( const blargg_wchar_t * p_source, unsigned * p_out, size_t p_source_length )
 {
 	if ( p_source_length == 0 ) return 0;
 	else if ( p_source_length == 1 )
@@ -404,13 +400,13 @@ size_t utf16_decode_char( const wchar_t * p_source, unsigned * p_out, size_t p_s
 }
 
 // Converts wide-character path to UTF-8. Free result with free(). Only supported on Windows.
-char* blargg_to_utf8( const wchar_t* wpath )
+char* blargg_to_utf8( const blargg_wchar_t* wpath )
 {
 	if ( wpath == NULL )
 		return NULL;
 	
 	size_t needed = 0;
-	size_t mmax = wcslen( wpath );
+    size_t mmax = blargg_wcslen( wpath );
 	if ( mmax <= 0 )
 		return NULL;
 
@@ -452,7 +448,7 @@ char* blargg_to_utf8( const wchar_t* wpath )
 }
 
 // Converts UTF-8 path to wide-character. Free result with free() Only supported on Windows.
-wchar_t* blargg_to_wide( const char* path )
+blargg_wchar_t* blargg_to_wide( const char* path )
 {
 	if ( path == NULL )
 		return NULL;
@@ -474,7 +470,7 @@ wchar_t* blargg_to_wide( const char* path )
 	if ( needed <= 0 )
 		return NULL;
 	
-	wchar_t* wpath = (wchar_t*) calloc( needed + 1, sizeof *wpath );
+    blargg_wchar_t* wpath = (blargg_wchar_t*) calloc( needed + 1, sizeof *wpath );
 	if ( wpath == NULL )
 		return NULL;
 
@@ -503,8 +499,8 @@ wchar_t* blargg_to_wide( const char* path )
 static FILE* blargg_fopen( const char path [], const char mode [] )
 {
 	FILE* file = NULL;
-	wchar_t* wmode = NULL;
-	wchar_t* wpath = NULL;
+    blargg_wchar_t* wmode = NULL;
+    blargg_wchar_t* wpath = NULL;
 	
 	wpath = blargg_to_wide( path );
 	if ( wpath )
@@ -622,7 +618,11 @@ blargg_err_t Std_File_Reader::read_v( void* p, int s )
 
 blargg_err_t Std_File_Reader::seek_v( BOOST::uint64_t n )
 {
+#ifdef _WIN32
 	if ( _fseeki64( STATIC_CAST(FILE*, file_), n, SEEK_SET ) )
+#else
+    if ( fseeko( STATIC_CAST(FILE*, file_), n, SEEK_SET ) )
+#endif
 	{
 		// Data_Reader's wrapper should prevent EOF
 		check( !feof( STATIC_CAST(FILE*, file_) ) );
@@ -731,11 +731,11 @@ static blargg_err_t convert_gz_error( gzFile file )
 
 blargg_err_t Gzip_File_Reader::read_v( void* p, int s )
 {
-	int result = gzread( file_, p, s );
+    int result = gzread( (gzFile) file_, p, s );
 	if ( result != s )
 	{
 		if ( result < 0 )
-			return convert_gz_error( file_ );
+            return convert_gz_error( (gzFile) file_ );
 		
 		return blargg_err_file_corrupt;
 	}
@@ -745,8 +745,8 @@ blargg_err_t Gzip_File_Reader::read_v( void* p, int s )
 
 blargg_err_t Gzip_File_Reader::seek_v( int n )
 {
-	if ( gzseek( file_, n, SEEK_SET ) < 0 )
-		return convert_gz_error( file_ );
+    if ( gzseek( (gzFile) file_, n, SEEK_SET ) < 0 )
+        return convert_gz_error( (gzFile) file_ );
 
 	return blargg_ok;
 }
@@ -755,7 +755,7 @@ void Gzip_File_Reader::close()
 {
 	if ( file_ )
 	{
-		if ( gzclose( file_ ) )
+        if ( gzclose( (gzFile) file_ ) )
 			check( false );
 		file_ = NULL;
 	}
