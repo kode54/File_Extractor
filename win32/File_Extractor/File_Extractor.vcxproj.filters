@@ -88,9 +88,6 @@
     <ClCompile Include="..\..\7z_C\Ppmd7Enc.c">
       <Filter>7-Zip\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\7z_C\Threads.c">
-      <Filter>7-Zip\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\fex\Binary_Extractor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -183,6 +180,9 @@
     </ClCompile>
     <ClCompile Include="..\..\unrar\unrar_open.cpp">
       <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\7z_C\win32\Threads.c">
+      <Filter>7-Zip\Source Files\Win32</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -354,6 +354,9 @@
     <ClInclude Include="..\..\unrar\unrar.h">
       <Filter>UnRar\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\7z_C\win32\Threads.h">
+      <Filter>7-Zip\Header Files\Win32</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\unrar\changes.txt">
@@ -396,6 +399,12 @@
     </Filter>
     <Filter Include="UnRar\Source Files">
       <UniqueIdentifier>{18fb02df-6501-4244-b19d-6c16e7115f12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="7-Zip\Header Files\Win32">
+      <UniqueIdentifier>{ea826f3e-f51e-478c-b1b2-474e86a2c0aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="7-Zip\Source Files\Win32">
+      <UniqueIdentifier>{4b9a51e7-23e4-4b13-95e2-5441c879c8da}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
