@@ -259,6 +259,15 @@ private:
 };
 #endif
 
+#ifdef _WIN32
+typedef wchar_t blargg_wchar_t;
+#elif defined(HAVE_STDINT_H)
+#include <stdint.h>
+typedef uint16_t blargg_wchar_t;
+#else
+typedef unsigned short blargg_wchar_t;
+#endif
+
 char* blargg_to_utf8( const blargg_wchar_t* );
 blargg_wchar_t* blargg_to_wide( const char* );
 

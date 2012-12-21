@@ -111,7 +111,7 @@
     <ClCompile Include="..\..\7z_C\Ppmd7.c" />
     <ClCompile Include="..\..\7z_C\Ppmd7Dec.c" />
     <ClCompile Include="..\..\7z_C\Ppmd7Enc.c" />
-    <ClCompile Include="..\..\7z_C\Threads.c" />
+    <ClCompile Include="..\..\7z_C\win32\Threads.c" />
     <ClCompile Include="..\..\fex\Binary_Extractor.cpp" />
     <ClCompile Include="..\..\fex\blargg_common.cpp" />
     <ClCompile Include="..\..\fex\blargg_errors.cpp" />
@@ -170,6 +170,7 @@
     <ClInclude Include="..\..\7z_C\Ppmd7.h" />
     <ClInclude Include="..\..\7z_C\RotateDefs.h" />
     <ClInclude Include="..\..\7z_C\Threads.h" />
+    <ClInclude Include="..\..\7z_C\win32\Threads.h" />
     <ClInclude Include="..\..\7z_C\Types.h" />
     <ClInclude Include="..\..\fex\Binary_Extractor.h" />
     <ClInclude Include="..\..\fex\blargg_common.h" />
