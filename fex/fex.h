@@ -7,7 +7,11 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "blargg_common.h"
+#ifdef _WIN32
+typedef wchar_t blargg_wchar_t;
+#else
+typedef uint16_t blargg_wchar_t;
+#endif
 
 #ifdef __cplusplus
 	extern "C" {
