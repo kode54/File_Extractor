@@ -225,7 +225,7 @@ blargg_err_t Zip7_Extractor::next_v()
 
 				time_t _time = time;
 				
-#ifdef _MSC_VER
+#ifdef _WIN32
                 localtime_s( &tm, &_time );
 #else
                 localtime_r( &_time, &tm );
