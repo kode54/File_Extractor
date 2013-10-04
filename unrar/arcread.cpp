@@ -121,7 +121,7 @@ unrar_err_t Archive::ReadHeader()
 					if (hd->Flags & LHD_UNICODE)
 					{
 						EncodeFileName NameCoder;
-						int Length=strlen(FileName);
+						int Length=(int)strlen(FileName);
 						if (Length==hd->NameSize)
 						{
 							UtfToWide(FileName,hd->FileNameW,sizeof(hd->FileNameW)/sizeof(hd->FileNameW[0])-1);

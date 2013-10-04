@@ -32,7 +32,7 @@ extern "C" {
 		if ( remain > 0 )
 		{
 			if ( count > remain )
-				count = remain;
+				count = (int)remain;
 			
 			memcpy( p->out, in, count );
 			p->out += count;
@@ -162,7 +162,7 @@ int ComprDataIO::UnpRead( byte* out, uint count )
 		return 0;
 
 	if ( count > (uint) UnpPackedSize )
-		count = UnpPackedSize;
+		count = (uint) UnpPackedSize;
 
 	int result = Read( out, count );
 	UnpPackedSize -= result;
