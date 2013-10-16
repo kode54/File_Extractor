@@ -25,6 +25,7 @@ WRes Event_Create(CEvent *p, BOOL manualReset, int signaled)
     p->created = TRUE;
     p->autoreset = !manualReset;
     p->triggered = !!signaled;
+    return 0;
 }
 
 WRes Event_Wait(CEvent *p)
@@ -35,6 +36,7 @@ WRes Event_Wait(CEvent *p)
     if ( p->autoreset )
         p->triggered = FALSE;
     pthread_mutex_unlock(&p->mutex);
+    return 0;
 }
 
 WRes Event_Set(CEvent *p)
@@ -51,6 +53,7 @@ WRes Event_Reset(CEvent *p)
     pthread_mutex_lock(&p->mutex);
     p->triggered = FALSE;
     pthread_mutex_unlock(&p->mutex);
+    return 0;
 }
 
 WRes ManualResetEvent_Create(CManualResetEvent *p, int signaled) { return Event_Create(p, TRUE, signaled); }

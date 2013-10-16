@@ -75,8 +75,8 @@ unrar_err_t CmdExtract::ExtractCurrentFile( bool SkipSolid, bool check_compatibi
 	
 	if (!SkipSolid)
 	{
-	    if (Arc.OldFormat && UINT32(DataIO.UnpFileCRC)==UINT32(Arc.NewLhd.FileCRC) ||
-	        !Arc.OldFormat && UINT32(DataIO.UnpFileCRC)==UINT32(Arc.NewLhd.FileCRC^0xffffffff))
+	    if ((Arc.OldFormat && UINT32(DataIO.UnpFileCRC)==UINT32(Arc.NewLhd.FileCRC)) ||
+	        (!Arc.OldFormat && UINT32(DataIO.UnpFileCRC)==UINT32(Arc.NewLhd.FileCRC^0xffffffff)))
 	    {
 	    	// CRC is correct
 	    }
@@ -95,7 +95,7 @@ unrar_err_t CmdExtract::ExtractCurrentFile( bool SkipSolid, bool check_compatibi
 
 void CmdExtract::UnstoreFile(Int64 DestUnpSize)
 {
-	Buffer.Alloc(Min(DestUnpSize,0x10000));
+	Buffer.Alloc((int)Min(DestUnpSize,0x10000));
 	while (1)
 	{
 		unsigned int Code=DataIO.UnpRead(&Buffer[0],Buffer.Size());
