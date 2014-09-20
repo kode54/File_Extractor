@@ -130,6 +130,9 @@
     <ClCompile Include="..\..\unrar\arcread.cpp">
       <Filter>UnRar\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\unrar\blake2s.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\unrar\coder.cpp">
       <Filter>UnRar\Source Files</Filter>
     </ClCompile>
@@ -145,7 +148,16 @@
     <ClCompile Include="..\..\unrar\getbits.cpp">
       <Filter>UnRar\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\unrar\hash.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unrar\headers.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\unrar\model.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unrar\pathfn.cpp">
       <Filter>UnRar\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\unrar\rarvm.cpp">
@@ -157,7 +169,16 @@
     <ClCompile Include="..\..\unrar\rawread.cpp">
       <Filter>UnRar\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\unrar\secpassword.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unrar\strfn.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\unrar\suballoc.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unrar\timefn.cpp">
       <Filter>UnRar\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\unrar\unicode.cpp">
@@ -315,6 +336,9 @@
     <ClInclude Include="..\..\unrar\array.hpp">
       <Filter>UnRar\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\unrar\blake2s.hpp">
+      <Filter>UnRar\Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\unrar\coder.hpp">
       <Filter>UnRar\Header Files</Filter>
     </ClInclude>
@@ -327,7 +351,13 @@
     <ClInclude Include="..\..\unrar\getbits.hpp">
       <Filter>UnRar\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\unrar\hash.hpp">
+      <Filter>UnRar\Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\unrar\headers.hpp">
+      <Filter>UnRar\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\unrar\headers5.hpp">
       <Filter>UnRar\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\unrar\model.hpp">
@@ -342,7 +372,13 @@
     <ClInclude Include="..\..\unrar\rawread.hpp">
       <Filter>UnRar\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\unrar\strfn.hpp">
+      <Filter>UnRar\Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\unrar\suballoc.hpp">
+      <Filter>UnRar\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\unrar\timefn.hpp">
       <Filter>UnRar\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\unrar\unicode.hpp">
