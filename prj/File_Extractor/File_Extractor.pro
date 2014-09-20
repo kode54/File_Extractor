@@ -51,20 +51,24 @@ SOURCES += \
     ../../unrar/unrar.cpp \
     ../../unrar/unrar_open.cpp \
     ../../unrar/unrar_misc.cpp \
-    ../../unrar/unpack20.cpp \
-    ../../unrar/unpack15.cpp \
     ../../unrar/unpack.cpp \
     ../../unrar/unicode.cpp \
+    ../../unrar/timefn.cpp \
     ../../unrar/suballoc.cpp \
+    ../../unrar/strfn.cpp \
     ../../unrar/rawread.cpp \
     ../../unrar/rarvmtbl.cpp \
     ../../unrar/rarvm.cpp \
+    ../../unrar/pathfn.cpp \
     ../../unrar/model.cpp \
+    ../../unrar/headers.cpp \
+    ../../unrar/hash.cpp \
     ../../unrar/getbits.cpp \
     ../../unrar/extract.cpp \
     ../../unrar/encname.cpp \
     ../../unrar/crc.cpp \
     ../../unrar/coder.cpp \
+    ../../unrar/blake2s.cpp \
     ../../unrar/arcread.cpp \
     ../../unrar/archive.cpp
 
@@ -109,16 +113,21 @@ HEADERS += \
     ../../unrar/unrar.h \
     ../../unrar/unpack.hpp \
     ../../unrar/unicode.hpp \
+    ../../unrar/timefn.hpp \
     ../../unrar/suballoc.hpp \
+    ../../unrar/strfn.hpp \
     ../../unrar/rawread.hpp \
     ../../unrar/rarvm.hpp \
     ../../unrar/rar.hpp \
     ../../unrar/model.hpp \
+    ../../unrar/headers5.hpp \
     ../../unrar/headers.hpp \
+    ../../unrar/hash.hpp \
     ../../unrar/getbits.hpp \
     ../../unrar/encname.hpp \
     ../../unrar/compress.hpp \
     ../../unrar/coder.hpp \
+    ../../unrar/blake2s.hpp \
     ../../unrar/array.hpp \
     ../../unrar/archive.hpp \
     ../../7z_C/MtCoder.h \
