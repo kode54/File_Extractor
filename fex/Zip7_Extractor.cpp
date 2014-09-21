@@ -239,9 +239,9 @@ blargg_err_t Zip7_Extractor::next_v()
 					(( ( tm.tm_year - 80 ) & 0x7F ) << 25 );
 			}
 
-			size_t name_length = SzArEx_GetFileNameUtf16( &impl->db, index, 0 );
+			size_t name_length = SzArEx_GetFileNameUtf16( &impl->db, (size_t) index, 0 );
 			name16.resize( name_length );
-			SzArEx_GetFileNameUtf16( &impl->db, index, ( UInt16 * ) name16.begin() );
+			SzArEx_GetFileNameUtf16( &impl->db, (size_t) index, ( UInt16 * ) name16.begin() );
 			char * temp = blargg_to_utf8( name16.begin() );
             const char * name_8 = temp;
 			if ( !temp ) name_8 = "";

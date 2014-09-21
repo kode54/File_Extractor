@@ -51,6 +51,12 @@ SOURCES += \
     ../../unrar/unrar.cpp \
     ../../unrar/unrar_open.cpp \
     ../../unrar/unrar_misc.cpp \
+    ../../unrar/unpackinline.cpp \
+    ../../unrar/unpack50frag.cpp \
+    ../../unrar/unpack50.cpp \
+    ../../unrar/unpack30.cpp \
+    ../../unrar/unpack20.cpp \
+    ../../unrar/unpack15.cpp \
     ../../unrar/unpack.cpp \
     ../../unrar/unicode.cpp \
     ../../unrar/timefn.cpp \
@@ -68,6 +74,8 @@ SOURCES += \
     ../../unrar/encname.cpp \
     ../../unrar/crc.cpp \
     ../../unrar/coder.cpp \
+    ../../unrar/blake2sp.cpp \
+    ../../unrar/blake2s_sse.cpp \
     ../../unrar/blake2s.cpp \
     ../../unrar/arcread.cpp \
     ../../unrar/archive.cpp

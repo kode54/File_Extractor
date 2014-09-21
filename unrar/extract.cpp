@@ -72,7 +72,7 @@ unrar_err_t CmdExtract::ExtractCurrentFile( bool SkipSolid, bool check_compatibi
 			Unp->DoUnpack(15,FileCount>1 && Arc.Solid);
 		else
 #endif
-			Unp->DoUnpack(Arc.FileHead.UnpVer,Arc.FileHead.Flags & LHD_SOLID);
+			Unp->DoUnpack(Arc.FileHead.UnpVer,!!(Arc.FileHead.Flags & LHD_SOLID));
 	}
 	
 	// (no need to seek to next file)

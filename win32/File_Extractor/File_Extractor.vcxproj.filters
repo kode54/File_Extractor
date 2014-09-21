@@ -154,9 +154,6 @@
     <ClCompile Include="..\..\unrar\headers.cpp">
       <Filter>UnRar\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\unrar\model.cpp">
-      <Filter>UnRar\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\unrar\pathfn.cpp">
       <Filter>UnRar\Source Files</Filter>
     </ClCompile>
@@ -204,6 +201,27 @@
     </ClCompile>
     <ClCompile Include="..\..\7z_C\win32\Threads.c">
       <Filter>7-Zip\Source Files\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unrar\blake2s_sse.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unrar\blake2sp.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unrar\model.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unrar\unpack30.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unrar\unpack50.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unrar\unpack50frag.cpp">
+      <Filter>UnRar\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unrar\unpackinline.cpp">
+      <Filter>UnRar\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -442,5 +460,10 @@
     <Filter Include="7-Zip\Source Files\Win32">
       <UniqueIdentifier>{4b9a51e7-23e4-4b13-95e2-5441c879c8da}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\unrar\acknow.txt">
+      <Filter>UnRar</Filter>
+    </Text>
   </ItemGroup>
 </Project>

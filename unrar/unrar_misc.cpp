@@ -76,7 +76,7 @@ extern "C" {
 			assert( !p->data_ );
 			
 			unrar_pos_t size = unrar_info( p )->size;
-			p->own_data_ = malloc( size ? size : 1 );
+			p->own_data_ = malloc( size ? (size_t)size : 1 );
 			if ( !p->own_data_ )
 				return unrar_err_memory;
 			

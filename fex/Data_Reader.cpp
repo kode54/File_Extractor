@@ -45,7 +45,7 @@ blargg_err_t Data_Reader::read_avail( void* p, int* n_ )
 {
 	assert( *n_ >= 0 );
 	
-	long n = min( (BOOST::uint64_t)(*n_), remain() );
+	long n = (long) min( (BOOST::uint64_t)(*n_), remain() );
 	*n_ = 0;
 	
 	if ( n < 0 )
@@ -79,7 +79,7 @@ blargg_err_t Data_Reader::skip_v( BOOST::uint64_t count )
 	{
         BOOST::uint64_t n = min( count, (BOOST::uint64_t) sizeof buf );
 		count -= n;
-		RETURN_ERR( read_v( buf, n ) );
+		RETURN_ERR( read_v( buf, (long)n ) );
 	}
 	return blargg_ok;
 }
@@ -501,8 +501,12 @@ static FILE* blargg_fopen( const char path [], const char mode [] )
 	if ( wpath )
 	{
 		wmode = blargg_to_wide( mode );
-		if ( wmode )
+		if (wmode)
+#if _MSC_VER >= 1300
+			errno = _wfopen_s(&file, wpath, wmode);
+#else
 			file = _wfopen( wpath, wmode );
+#endif
 	}
 	
 	// Save and restore errno in case free() clears it
@@ -756,7 +760,7 @@ blargg_err_t Gzip_File_Reader::read_v( void* p, long s )
 
 blargg_err_t Gzip_File_Reader::seek_v( BOOST::uint64_t n )
 {
-    if ( gzseek( (gzFile) file_, n, SEEK_SET ) < 0 )
+    if ( gzseek( (gzFile) file_, (long)n, SEEK_SET ) < 0 )
         return convert_gz_error( (gzFile) file_ );
 
 	return blargg_ok;

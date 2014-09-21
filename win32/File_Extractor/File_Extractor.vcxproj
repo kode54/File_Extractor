@@ -58,7 +58,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../..;../../../foobar/zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WIN_ALL;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>
@@ -72,7 +72,7 @@
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>../..;../../../foobar/zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WIN_ALL;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -129,6 +129,8 @@
     <ClCompile Include="..\..\unrar\archive.cpp" />
     <ClCompile Include="..\..\unrar\arcread.cpp" />
     <ClCompile Include="..\..\unrar\blake2s.cpp" />
+    <ClCompile Include="..\..\unrar\blake2sp.cpp" />
+    <ClCompile Include="..\..\unrar\blake2s_sse.cpp" />
     <ClCompile Include="..\..\unrar\coder.cpp" />
     <ClCompile Include="..\..\unrar\crc.cpp" />
     <ClCompile Include="..\..\unrar\encname.cpp" />
@@ -149,6 +151,10 @@
     <ClCompile Include="..\..\unrar\unpack.cpp" />
     <ClCompile Include="..\..\unrar\unpack15.cpp" />
     <ClCompile Include="..\..\unrar\unpack20.cpp" />
+    <ClCompile Include="..\..\unrar\unpack30.cpp" />
+    <ClCompile Include="..\..\unrar\unpack50.cpp" />
+    <ClCompile Include="..\..\unrar\unpack50frag.cpp" />
+    <ClCompile Include="..\..\unrar\unpackinline.cpp" />
     <ClCompile Include="..\..\unrar\unrar.cpp" />
     <ClCompile Include="..\..\unrar\unrar_misc.cpp" />
     <ClCompile Include="..\..\unrar\unrar_open.cpp" />
@@ -223,6 +229,9 @@
     <None Include="..\..\unrar\readme.txt" />
     <None Include="..\..\unrar\technote.txt" />
     <None Include="..\..\unrar\whatsnew.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\unrar\acknow.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
