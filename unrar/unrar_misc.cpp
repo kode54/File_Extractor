@@ -159,7 +159,7 @@ int ComprDataIO::UnpRead( byte* out, uint count )
 		return 0;
 
 	if ( count > (uint) UnpPackedSize )
-		count = UnpPackedSize;
+		count = (uint) UnpPackedSize;
 
 	int result = Read( out, count );
 	UnpPackedSize -= result;
