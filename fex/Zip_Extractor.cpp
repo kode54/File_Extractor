@@ -142,7 +142,7 @@ blargg_err_t Zip_Extractor::open_v()
 		return blargg_err_file_type;
 
 	// Read final end_read_size bytes of file
-	BOOST::uint64_t file_pos = max( (BOOST::uint64_t) 0, arc().size() - end_read_size );
+	BOOST::int64_t file_pos = max( (BOOST::int64_t) 0, (BOOST::int64_t) arc().size() - end_read_size );
 	file_pos -= file_pos % disk_block_size;
 	RETURN_ERR( catalog.resize( (size_t)(arc().size() - file_pos) ) );
 	RETURN_ERR( arc().seek( file_pos ) );
