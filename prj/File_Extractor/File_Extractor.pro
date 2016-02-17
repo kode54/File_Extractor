@@ -161,4 +161,5 @@ unix:!symbian {
         target.path = /usr/lib
     }
     INSTALLS += target
+    DEFINES += _UNIX=1
 }
